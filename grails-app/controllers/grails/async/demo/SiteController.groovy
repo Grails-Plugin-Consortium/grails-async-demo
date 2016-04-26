@@ -29,10 +29,30 @@ class SiteController {
             } else {
                 log.info('No error will be thrown')
             }
+            return
         }.onError {
             redirect action: 'index'
+            return
         }.onComplete {
             render model: siteService.getModel(), view: 'index'
+            return
+        }
+    }
+
+    def error2(){
+        task {
+            siteService.throwError()
+        }
+    }
+
+    def caught(){
+        task {
+            try {
+                siteService.throwError()
+            } catch (RuntimeException e) {
+                log.error("Caught exception!", e)
+                render view: 'index'
+            }
         }
     }
 }

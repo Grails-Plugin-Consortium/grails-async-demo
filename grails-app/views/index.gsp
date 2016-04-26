@@ -1,3 +1,4 @@
+<%@ page import="grails.util.Environment" %>
 <!doctype html>
 <html>
 <head>
@@ -23,7 +24,7 @@
                 <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
                 <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
+                <li><a href="#">Reloading active: ${Environment.reloadingAgentEnabled}</a></li>
             </ul>
         </li>
         <li class="dropdown">
@@ -57,6 +58,8 @@
             <a href="/site/home">Redirect within a task {}</a><br />
             <a href="/site/error?causeError=true">Error within a task {}</a><br />
             <a href="/site/error?causeError=false">OnComplete render within a task {}</a><br />
+            <a href="/site/error2">Thrown error within a task {}</a><br />
+            <a href="/site/caught">Caught error within a task {}</a><br />
         </section>
     </div>
 
